@@ -298,7 +298,7 @@ header .info {
     cursor: pointer;
 }
 
-/* list song */
+/* list song right*/
 .sidebar-right .sidebar-list--item {
     margin-top: 80px;
     display: block;
@@ -320,7 +320,7 @@ header .info {
     border-radius:10px;
 }
 
-.sidebar-list--item .item .song {
+.sidebar-list--item .item .song-right {
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -328,27 +328,27 @@ header .info {
     position: relative;
 }
 
-.sidebar-list--item .item .song .image {
+.sidebar-list--item .item .song-right .image {
     width: 30%;
     height: 80%;
     padding-right: 10px;
 }
 
-.sidebar-list--item .item .song .image img {
+.sidebar-list--item .item .song-right .image img {
     width: 100%;
     height: 100%;
     border-radius: 6px;
 }
 
-.sidebar-list--item .item:hover .song .image img {
+.sidebar-list--item .item:hover .song-right .image img {
     opacity: .5;
 }
 
-.sidebar-list--item .item .song .title {
+.sidebar-list--item .item .song-right .title {
     flex: 1;
 }
 
-.sidebar-list--item .item .song .title h5 {
+.sidebar-list--item .item .song-right .title h5 {
     color: white;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -357,7 +357,7 @@ header .info {
     -webkit-box-orient: vertical;
 }
 
-.sidebar-list--item .item .song .title p {
+.sidebar-list--item .item .song-right .title p {
     padding-top: 5px;
     color: #9c9a9a;
     font-size: 12px;
@@ -451,29 +451,29 @@ header .info {
 }
 
 /*  */
-.choose-today {
+.play-list {
     margin: 0 3% 3% 5%;
 }
 
-.choose-today h2 {
+.play-list h2 {
     color: white;
     text-transform: capitalize;
 }
 
-.choose-today--list {
+.song {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-gap: 30px;
     margin: 3% -2% 2% 0%;
 }
 
-.choose-today--list .item {
+.song .item {
     border-radius: 6px;
     overflow: hidden;
     cursor: pointer;
 }
 
-.choose-today--list .item .image {
+.song .item .image {
     width: 100%;
     height: 160px;
     overflow: hidden;
@@ -481,17 +481,17 @@ header .info {
     position: relative;
 }
 
-.choose-today--list .item:hover .image img {
+.song .item:hover .image img {
     transform: scale(1.1);
 }
 
-.choose-today--list .item img {
+.song .item img {
     width: 100%;
     height: 100%;
     border-radius: 6px;
 }
 
-.choose-today--list .item .content h4 {
+.song .item .content h4 {
     color: white;
     text-transform: capitalize;
     padding: 5px 0;
@@ -500,7 +500,7 @@ header .info {
     overflow: hidden;
 }
 
-.choose-today--list .item .content p {
+.song .item .content p {
     color: #86828d;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -510,7 +510,7 @@ header .info {
     font-size: 16px;
 }   
 
-.choose-today--list .item .image .icon { 
+.song .item .image .icon { 
     position: absolute;
     top: 0;
     bottom: 0;
@@ -522,11 +522,11 @@ header .info {
     padding: 0 10px;
 }
 
-.choose-today--list .item .image .icon:hover {
+.song .item .image .icon:hover {
     background-color: rgba(46, 39, 57, 0.3);
 }
 
-.choose-today--list .item .image .icon i {
+.song .item .image .icon i {
     color:rgb(204, 204, 205);
     width: 35px;
     height: 35px;
@@ -537,7 +537,7 @@ header .info {
     display: none;
 }
 
-.choose-today--list .item .image .icon:hover i {
+.song .item .image .icon:hover i {
     display: block;
 }
 
@@ -573,7 +573,7 @@ header .info {
 }
 
 /* playsong */
-.playsong {
+.play-song {
     border-top: 1px solid rgb(134, 131, 131);
     background-color: #120c1c;
     display: grid;
@@ -587,18 +587,18 @@ header .info {
     padding: 0 10px;
 }
 
-.playsong .left {
+.play-song .left {
     display: flex;
     padding-top: 15px;
     align-items: center;
 }
  
-.playsong .left .image {
+.play-song .left .image {
     width: 100px;
     padding-right: 10px;
 }
 
-.playsong .left .image .cd-thumb {
+.play-song .left .image .cd-thumb {
     width: 100%;
     padding-top: 100%;
     border-radius: 50%;
@@ -607,7 +607,7 @@ header .info {
     margin: auto;
 }
 
-.playsong .left .image .cd-thumb.spin {
+.play-song .left .image .cd-thumb.spin {
     animation: spin 10s linear infinite;
 }
 
@@ -616,24 +616,24 @@ header .info {
 }
 
 
-.playsong .left .image img {
+.play-song .left .image img {
     width: 100%;
     border-radius: 5px;
 }
 
-.playsong .left .title h3 {
+.play-song .left .title h3 {
     color: rgb(247, 242, 242);
     font-size: 16px;
     text-transform: capitalize;
 }
 
-.playsong .left .title p {
+.play-song .left .title p {
     color: rgb(131, 128, 128);
     font-size: 14px;
 
 }
 
-.playsong .control {
+.play-song .control {
     padding-top: 15px;
     display: flex;
     flex-direction: column;
@@ -651,34 +651,36 @@ header .info {
     display: none;
 }
 
-.playsong .control .icon {
+.play-song .control .icon {
     display: flex;
     justify-content: space-between;
     align-items: center;
     text-align: center;
 }
 
-.playsong .control .icon .btn {
+.play-song .control .icon .btn {
     width: 35px;
     height: 35px;
     border-radius: 50%;
     margin: 0 auto;
 }
 
-.playsong .control .icon .btn:hover {
+.play-song .control .icon .btn.active i {
+    color: #7200a1;
+}
+
+.play-song .control .icon .btn:hover {
     background-color: rgba(46, 39, 57, 0.8);
 }
 
-.playsong .control .icon .btn i {
+.play-song .control .icon .btn i {
     width: 100%;
     font-size: 18px;
     padding: 9px 9px;
     color: rgb(131, 128, 128);
 }
 
-
-
-.playsong .control .icon .play i, .icon-pause i {
+.play-song .control .icon .play i, .icon-pause i {
     color: white;
     width: 40px;
     height: 40px;
@@ -687,45 +689,45 @@ header .info {
     padding: 10px 10px;
 }
 
-.playsong .control .icon .play i:hover, .icon-pause i:hover {
+.play-song .control .icon .play i:hover, .icon-pause i:hover {
     background-color: none;
     border: 2px solid #7200a1;
     color: #7200a1;
 }
 
-.playsong .control .time {
+.play-song .control .time {
     display: flex;
     justify-content: space-between;
     color: white;
     margin-top: 10px;
 }
 
-.playsong .control .progress {
+.play-song .control .progress {
     margin-top: 10px;
     height: 2px;
 }
 
-.playsong .right {
+.play-song .right {
     padding-top: 15px;
     display: flex;
 }
 
-.playsong .right .btn {
+.play-song .right .btn {
     width: 35px;
     height: 35px;
     border-radius: 50%;
 }
 
-.playsong .right .volume {
+.play-song .right .volume {
     display: flex;
     align-items: center;
 }
 
-.playsong .right .volume input {
+.play-song .right .volume input {
     height: 3px;
 }
 
-.playsong .right .btn i {
+.play-song .right .btn i {
     width: 100%;
     font-size: 18px;
     padding: 9px 9px;
@@ -754,7 +756,7 @@ header .info {
         padding: 0;
     }
 
-    .choose-today--list {
+    .play-list .song {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         grid-gap: 10px;
@@ -767,7 +769,7 @@ header .info {
         grid-gap: 15px;
     }
 
-    .playsong {
+    .play-song {
         border-top: 1px solid rgb(134, 131, 131);
         background-color: #120c1c;
         display: grid;

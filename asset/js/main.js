@@ -36,16 +36,23 @@ const nameSong = $('.title h3')
 const nameSinger = $('.title p')
 const image = $('.cd-thumb')
 const audio = $('#audio')
-const playList = $('.choose-today--list')
+const playList = $('.song')
+const timeAt = $('.curentime')
+const durationTime = $('.duration')
+const progress = $('.progress')
+const volumeBtn = $('#volume')
+const nextBtn = $('.next')
+const prevBtn = $('.prev')
+const randomBtn = $('.random')
+const repeatBtn = $('.repeat')
 
-
-
-let isPlaying = true
 let indexSong = 0
+let isPlaying = true
 let isCdThumb = false
+let isRepeat = false
+let isRandom = false
 
-
-
+ 
 
 fetch(songsApi)
   .then(function(response){
@@ -71,17 +78,17 @@ fetch(songsApi)
       </div>`  
 
     });
-    $('.choose-today--list').innerHTML = htmls.join('');
+    $('.song').innerHTML = htmls.join('');
 
     // lấy bài hát đầu tiên
-    function firstSong() {
+    function firstSong(indexSong) {
       nameSong.innerHTML = `${datas[indexSong].name_music}`
       nameSinger.innerHTML = `${datas[indexSong].name_singer}`
       image.style.backgroundImage = `url('${datas[indexSong].image_music}')`
       audio.src = `${datas[indexSong].src_music}`
       audio.play();
     }
-    firstSong();
+    firstSong(indexSong);
 
     // play nhạc
     playBtn.addEventListener('click', play);
@@ -112,18 +119,131 @@ fetch(songsApi)
       if(songNode) {
         indexSong = Number(songNode.dataset.index)
         // console.log(indexSong)
-        firstSong()
+        firstSong(indexSong)
         play()
       }
     }
 
+    // Next bài hát
+    nextBtn.addEventListener('click', function() {
+      if(isRandom) {
+        randomSong()
+      } else {
+        nextSong()
+      }
+      audio.play()
+    });
+    function nextSong() {
+      indexSong ++
+      if(indexSong >= datas[indexSong].src_music.length) {
+        indexSong = 0
+      }
+      firstSong(indexSong)
+    }
 
+    // Prev bài hát
+    prevBtn.addEventListener('click', function() {
+      if(isRandom) {
+        randomSong()
+      } else {
+        prevSong()
+      }
+      audio.play()
+    })
+    function prevSong() {
+      indexSong --
+      if(indexSong <= 0 ) {
+        indexSong = datas[indexSong].src_music.length -1
+      }
+      firstSong(indexSong)
+    }
 
+    // Random bài hát
+    randomBtn.addEventListener('click', function() {
+      if(isRandom) {
+          isRandom = false;
+          randomBtn.classList.remove('active')
+      }else {
+          isRandom = true;
+          randomBtn.classList.add('active')
+      }
 
-  });
+    });
+    function randomSong(){
+      let newIndex
+      do {
+        newIndex = Math.floor(Math.random() *datas[indexSong].src_music.length)
+      } while (newIndex === indexSong)
+      indexSong = newIndex
+      firstSong(indexSong)
+    }
+
+    // Repeat bài hát
+    audio.addEventListener('ended', handleEndedSong);
+    function handleEndedSong() {
+      if(isRepeat) {
+          isPlaying = true;
+          play()
+      } else {
+          nextSong()
+      }
+    }
+
+    repeatBtn.addEventListener('click', function() {
+      if(isRepeat) {
+        isRepeat = false;
+        repeatBtn.classList.remove('active')
+      }else {
+        isRepeat = true;
+        repeatBtn.classList.add('active')
+      }
+    });
 
   
 
+
+
+
+    // Hiển thị thời gian
+    function displayTimes() {
+      const {duration, currentTime} = audio
+
+      durationTime.textContent = formatTime(duration)
+
+      if(!duration) {
+        timeAt.textContent = "00:00"
+      } else {
+        timeAt.textContent = formatTime(currentTime)
+      }
+
+      progress.max = duration
+      progress.value = currentTime
+
+    }
+
+    // Định dạng thời gian
+    function formatTime(number) {
+      const minutes = Math.floor(number / 60 );
+      const seconds = Math.floor(number - minutes * 60);
+      return `${minutes}:${seconds}`;     
+    }
+  
+    displayTimes();
+    setInterval(displayTimes, 500);
+    
+    // Tua bài hát
+    progress.addEventListener('click', handleChangeProgess)
+    function handleChangeProgess() {
+      audio.currentTime = progress.value
+    }
+
+    // chỉnh volume
+    volumeBtn.addEventListener('change', function() {
+      audio.volume = volume.value/100;
+    });
+
+
+  });
 
 
 
@@ -141,7 +261,7 @@ fetch(songsApi2)
     return `
       <li class="item">
 
-        <div class="song">
+        <div class="song-right">
 
           <div class="image">
             <img src="${song.image_music}" alt="">
