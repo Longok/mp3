@@ -777,11 +777,32 @@ header .info {
         grid-gap: 5px;
         position: fixed;
         bottom: 0;
-        right: 20%;
-        left: 15%;
+        right: 0;
+        left: 0;
         z-index: 1000;
-        padding: 0 10px;
     }
 
-    
+    .play-song .left {
+        padding: 0;
+    }
+
+    .play-song .left .image {
+        width: 50px;
+        height: 50px;
+    }
+    .play-song .left .title h3, p {
+        font-size: 12px;
+    }
+    .play-song .control {
+        padding: 0;
+        height: 50px;
+    }
+
+    .play-song .control .icon .btn, .play {
+        height: 20px;
+    }
+    .play-song .right {
+        /* display: none; */
+    }
+ 
 }

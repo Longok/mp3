@@ -199,10 +199,6 @@ fetch(songsApi)
       }
     });
 
-  
-
-
-
 
     // Hiển thị thời gian
     function displayTimes() {
