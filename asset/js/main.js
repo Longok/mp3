@@ -27,8 +27,8 @@
 const $ = document.querySelector.bind(document)
 const $$ = document.querySelectorAll.bind(document)
 
-const songsApi = 'https://api-kaito-music.herokuapp.com/music/trending?_limit=30';
-const songsApi2 = 'https://api-kaito-music.herokuapp.com/music/trending?_limit=30';
+const songsApi = 'https://api-kaito-music.herokuapp.com/api/music/trending?_limit=30';
+const songsApi2 = 'https://api-kaito-music.herokuapp.com/api/music/trending?_limit=30';
 
 const playBtn = $('.play')
 const iconPlayBtn = $('.control')

@@ -801,8 +801,8 @@ header .info {
     .play-song .control .icon .btn, .play {
         height: 20px;
     }
-    .play-song .right {
-        /* display: none; */
+    /* .play-song .right {
+        display: none;
     }
- 
+  */
 }
