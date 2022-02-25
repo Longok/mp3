@@ -128,8 +128,13 @@ fetch(songsApi)
     nextBtn.addEventListener('click', function() {
       if(isRandom) {
         randomSong()
+        isPlaying = true;
+        play()
       } else {
         nextSong()
+        isPlaying = true;
+        play()
+        
       }
       audio.play()
     });
@@ -145,8 +150,12 @@ fetch(songsApi)
     prevBtn.addEventListener('click', function() {
       if(isRandom) {
         randomSong()
+        isPlaying = true;
+        play()
       } else {
         prevSong()
+        isPlaying = true;
+        play()
       }
       audio.play()
     })

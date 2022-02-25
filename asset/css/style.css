@@ -637,6 +637,7 @@ header .info {
     padding-top: 15px;
     display: flex;
     flex-direction: column;
+    padding-bottom: 20px;
 }
 
 .control.playing .icon .icon-pause{
@@ -678,6 +679,7 @@ header .info {
     font-size: 18px;
     padding: 9px 9px;
     color: rgb(131, 128, 128);
+    cursor: pointer;
 }
 
 .play-song .control .icon .play i, .icon-pause i {
@@ -687,6 +689,7 @@ header .info {
     border: 1px solid white;
     border-radius: 50%;
     padding: 10px 10px;
+    cursor: pointer;
 }
 
 .play-song .control .icon .play i:hover, .icon-pause i:hover {
@@ -699,42 +702,12 @@ header .info {
     display: flex;
     justify-content: space-between;
     color: white;
-    margin-top: 10px;
 }
 
 .play-song .control .progress {
     margin-top: 10px;
     height: 2px;
 }
-
-.play-song .right {
-    padding-top: 15px;
-    display: flex;
-}
-
-.play-song .right .btn {
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-}
-
-.play-song .right .volume {
-    display: flex;
-    align-items: center;
-}
-
-.play-song .right .volume input {
-    height: 3px;
-}
-
-.play-song .right .btn i {
-    width: 100%;
-    font-size: 18px;
-    padding: 9px 9px;
-    color: rgb(131, 128, 128);
-}
-
-
 
 
 
@@ -748,7 +721,6 @@ header .info {
     .sidebar-left {
         display: none;
     }
-
 
     .container {
         background-color: #170f23;
@@ -784,6 +756,7 @@ header .info {
 
     .play-song .left {
         padding: 0;
+        margin-bottom: -15px;
     }
 
     .play-song .left .image {
@@ -794,15 +767,16 @@ header .info {
         font-size: 12px;
     }
     .play-song .control {
-        padding: 0;
-        height: 50px;
+        padding-bottom: 15px;
+        padding-top: 0;
     }
 
     .play-song .control .icon .btn, .play {
         height: 20px;
     }
-    /* .play-song .right {
-        display: none;
+
+    .play-song .control .icon .btn i {
+        font-size: 18px;
+        color: rgb(131, 128, 128);
     }
-  */
 }
