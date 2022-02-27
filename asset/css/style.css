@@ -670,7 +670,7 @@ header .info {
     color: #7200a1;
 }
 
-.play-song .control .icon .btn:hover {
+.play-song .control .icon .btn i:hover {
     background-color: rgba(46, 39, 57, 0.8);
 }
 
@@ -680,6 +680,7 @@ header .info {
     padding: 9px 9px;
     color: rgb(131, 128, 128);
     cursor: pointer;
+    border-radius: 50%;
 }
 
 .play-song .control .icon .play i, .icon-pause i {
@@ -706,13 +707,26 @@ header .info {
 
 .play-song .control .progress {
     margin-top: 10px;
-    height: 2px;
+    height: 3px;
+    cursor: pointer;
 }
 
 
 
 
 @media (max-width: 768px) {
+
+    header .search {
+        margin: 0 auto;
+    }
+
+    header .search input {
+        color: white;
+    }
+
+    header .info,header .arrow {
+        display: none;
+    }
 
     .sidebar-right {
         display: none;
@@ -726,11 +740,24 @@ header .info {
         background-color: #170f23;
         color: rgb(204, 204, 205);
         padding: 0;
+        overflow: hidden;
+    }
+
+    .play-list {
+        margin: 0;
+    }
+
+    .banner {
+        margin: 3% 0;
+    }
+
+    .swiper {
+        margin: 0 !important;
     }
 
     .play-list .song {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         grid-gap: 10px;
         margin-top: 3%;
     }

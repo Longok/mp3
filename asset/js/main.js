@@ -242,12 +242,6 @@ fetch(songsApi)
       audio.currentTime = progress.value
     }
 
-    // chỉnh volume
-    volumeBtn.addEventListener('change', function() {
-      audio.volume = volume.value/100;
-    });
-
-
   });
 
 
